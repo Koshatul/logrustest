@@ -9,8 +9,8 @@ matrix:
 before_install: go get -u github.com/Masterminds/glide
 install: glide --debug install
 script:
-  - GOOS="darwin" go build -v src/cmd/logrustest/*.go
-  - GOOS="linux" go build -v src/cmd/logrustest/*.go
+  - GOOS="darwin" go build -v ./src/...
+  - GOOS="linux" go build -v ./src/...
 cache:
     directories:
         - $HOME/.glide/cache
