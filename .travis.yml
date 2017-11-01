@@ -1,0 +1,16 @@
+language: go
+go:
+- '1.8'
+- tip
+matrix:
+  fast_finish: true
+  allow_failures:
+  - go: tip
+before_install: go get -u github.com/Masterminds/glide
+install: glide --debug install
+script:
+  - GOOS="darwin" go build -v src/cmd/logrustest/*.go
+  - GOOS="linux" go build -v src/cmd/logrustest/*.go
+cache:
+    directories:
+        - $HOME/.glide/cache
