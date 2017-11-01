@@ -11,6 +11,3 @@ install: glide --debug install
 script:
   - GOOS="darwin" go build -v ./src/...
   - GOOS="linux" go build -v ./src/...
-cache:
-    directories:
-        - $HOME/.glide/cache
